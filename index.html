@@ -18,6 +18,9 @@
       margin: 0 5vw;
       font-size: 1rem;
       line-height: 1.6;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
     body, html {
       -webkit-user-select: none;
@@ -38,6 +41,9 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.15);
       color: #fff;
       position: relative;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
     .logo-img {
       width: 120px;
@@ -126,7 +132,11 @@
       background: #f9f9ff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
     }
+    .director.visible { opacity: 1; transform: translateY(0); }
     .director img {
       width: 100px;
       height: 100px;
@@ -150,7 +160,12 @@
       border-radius: 12px;
       padding: 15px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.3s ease, opacity 0.6s ease;
     }
+    .section-box.visible { opacity: 1; transform: translateY(0); }
+    .section-box:hover { transform: translateY(-5px); }
 
     /* Center align for Contact Us & Image */
     .dual-section:last-of-type .section-box {
@@ -172,7 +187,11 @@
       color: #3a2f00;
       margin-top: 25px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
     }
+    .tagline.visible { opacity: 1; transform: translateY(0); }
 
     /* FOOTER */
     .footer {
@@ -183,6 +202,9 @@
       margin-top: 40px;
       background: linear-gradient(90deg, #4e54c8, #8f94fb);
       border-radius: 10px;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
 
     /* RESPONSIVE */
@@ -227,7 +249,16 @@
       if (e.ctrlKey && e.key === 'c') e.preventDefault();
       if (e.keyCode === 44) e.preventDefault(); 
     });
-    // Scroll animation हटाया गया: अब सभी elements तुरंत दिखाई देंगे
+
+    // Scroll-based animations for other sections
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('.section-box, .director, .tagline').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    });
   </script>
 </head>
 <body>
