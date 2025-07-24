@@ -166,6 +166,15 @@
     .section-box.visible { opacity: 1; transform: translateY(0); }
     .section-box:hover { transform: translateY(-5px); }
 
+    /* Center align for Contact Us & Image */
+    .dual-section:last-of-type .section-box {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* TAGLINE */
     .tagline {
       background: linear-gradient(90deg, #ffe259, #ffa751);
@@ -252,24 +261,20 @@
 
 <div class="container">
   <div class="director">
-  <!-- Director Photo & Info -->
-  <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/100x100.jpg" alt="Director Photo">
-  <div>
-    <strong>👨‍🏫 Director: Narendra Kumar Nagar </strong><br>
-    <em>Visionary educator and digital learning promoter committed to student success.</em>
-  </div>
-
-  <!-- Coordinator Section -->
-  <div style="margin-left:auto; text-align:center;">
-    <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/Cordinator-100x100.jpg" 
-         alt="Coordinator Photo" 
-         style="width:100px; height:100px; object-fit:cover; border-radius:50%; border:3px solid #4e54c8;">
-    <div style="margin-top:8px; font-weight:600; color:#4e54c8;">
-      Coordinator: Bintosh Nagar
+    <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/100x100.jpg" alt="Director Photo">
+    <div>
+      <strong>👨‍🏫 Director: Narendra Kumar Nagar </strong><br>
+      <em>Visionary educator and digital learning promoter committed to student success.</em>
+    </div>
+    <div style="margin-left:auto; text-align:center;">
+      <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/Cordinator-100x100.jpg" 
+           alt="Coordinator Photo" 
+           style="width:100px; height:100px; object-fit:cover; border-radius:50%; border:3px solid #4e54c8;">
+      <div style="margin-top:8px; font-weight:600; color:#4e54c8;">
+        Coordinator: Bintosh Nagar
+      </div>
     </div>
   </div>
-</div>
-
 
   <div class="dual-section">
     <div class="section-box">
