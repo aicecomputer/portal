@@ -18,11 +18,6 @@
       margin: 0 5vw;
       font-size: 1rem;
       line-height: 1.6;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     body, html {
       -webkit-user-select: none;
@@ -131,11 +126,7 @@
       background: #f9f9ff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
     }
-    .director.visible { opacity: 1; transform: translateY(0); }
     .director img {
       width: 100px;
       height: 100px;
@@ -159,12 +150,7 @@
       border-radius: 12px;
       padding: 15px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, opacity 0.6s ease;
-      opacity: 0;
-      transform: translateY(30px);
     }
-    .section-box.visible { opacity: 1; transform: translateY(0); }
-    .section-box:hover { transform: translateY(-5px); }
 
     /* Center align for Contact Us & Image */
     .dual-section:last-of-type .section-box {
@@ -186,11 +172,7 @@
       color: #3a2f00;
       margin-top: 25px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
     }
-    .tagline.visible { opacity: 1; transform: translateY(0); }
 
     /* FOOTER */
     .footer {
@@ -214,7 +196,6 @@
       }
       .logo-img { width: 90px; height: 90px; }
       .header-title h1 { font-size: 1.3rem; }
-      /* Start Button अब हेडर में ही, fixed नहीं */
       .start-button {
         font-size: 0.9rem;
         padding: 10px 18px;
@@ -229,7 +210,6 @@
         align-items: center; 
       }
       .director img { margin: 0 0 12px 0; }
-      /* Coordinator का div सेंटर */
       .director > div:last-child {
         margin-left: 0 !important;
         text-align: center;
@@ -241,19 +221,13 @@
     }
   </style>
   <script>
+    // Disable right-click and some keys
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.key === 'c') e.preventDefault();
       if (e.keyCode === 44) e.preventDefault(); 
     });
-    document.addEventListener('scroll', () => {
-      document.querySelectorAll('.section-box, .director, .tagline').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          el.classList.add('visible');
-        }
-      });
-    });
+    // Scroll animation हटाया गया: अब सभी elements तुरंत दिखाई देंगे
   </script>
 </head>
 <body>
@@ -262,6 +236,7 @@
   <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/120x120-new.jpg" alt="Institute Logo" class="logo-img">
   <div class="header-title">
     <h1>Advance Institute of Computer Education</h1>
+    <p>3/SC-2/37 SECTOR 03 INDRA GANDHI NAGAR, JAGATPURA, JAIPUR - 302017</p>
     <p style="color: black; font-family: 'Poppins', sans-serif; font-weight: 600; font-style: italic;">
       Make RS-CIT Exam Success Easy & Digital!
     </p>
