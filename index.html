@@ -42,6 +42,7 @@
       border-radius: 0 0 20px 20px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.15);
       color: #fff;
+      position: relative;
     }
     .logo-img {
       width: 120px;
@@ -78,13 +79,16 @@
       transition: all 0.3s ease;
       display: inline-block;
       margin-top: 15px;
+      position: sticky;
+      top: 10px;
+      z-index: 10;
     }
     .start-button:hover {
       transform: scale(1.1);
       box-shadow: 0 8px 25px rgba(255, 165, 0, 0.6);
     }
 
-    /* CONTAINER & CARDS */
+    /* CONTAINER & SECTIONS */
     .container {
       max-width: 1200px;
       margin: 30px auto;
@@ -93,7 +97,6 @@
       backdrop-filter: blur(10px);
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      animation: fadeIn 1.5s ease-in-out;
     }
     h3 {
       color: #4e54c8;
@@ -132,7 +135,11 @@
       background: #f9f9ff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
     }
+    .director.visible { opacity: 1; transform: translateY(0); }
     .director img {
       width: 100px;
       height: 100px;
@@ -141,18 +148,8 @@
       margin-right: 20px;
       border: 3px solid #4e54c8;
     }
-    .tagline {
-      background: linear-gradient(90deg, #ffe259, #ffa751);
-      padding: 12px;
-      font-weight: bold;
-      font-size: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      color: #3a2f00;
-      margin-top: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
 
+    /* SECTIONS */
     .dual-section {
       display: flex;
       flex-wrap: wrap;
@@ -166,11 +163,34 @@
       border-radius: 12px;
       padding: 15px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.6s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .section-box.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .section-box:hover {
       transform: translateY(-5px);
     }
+
+    /* TAGLINE */
+    .tagline {
+      background: linear-gradient(90deg, #ffe259, #ffa751);
+      padding: 12px;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      color: #3a2f00;
+      margin-top: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .tagline.visible { opacity: 1; transform: translateY(0); }
 
     /* FOOTER */
     .footer {
@@ -194,61 +214,59 @@
         align-items: center;
         text-align: center;
       }
-      .logo-img {
-        width: 90px;
-        height: 90px;
-      }
-      .header-title h1 {
-        font-size: 1.3rem;
-      }
+      .logo-img { width: 90px; height: 90px; }
+      .header-title h1 { font-size: 1.3rem; }
       .start-button {
         font-size: 0.9rem;
         padding: 10px 18px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
       }
       .dual-section {
         flex-direction: column;
         gap: 20px;
       }
-      .section-box {
-        flex: 1 1 100%;
-      }
+      .section-box { flex: 1 1 100%; }
       .director {
         flex-direction: column;
         text-align: center;
       }
-      .director img {
-        margin: 0 0 12px 0;
-      }
+      .director img { margin: 0 0 12px 0; }
     }
-
     @media screen and (max-width: 400px) {
-      body {
-        margin: 0 2vw;
-        font-size: 0.85rem;
-      }
-      .logo-img {
-        width: 70px;
-        height: 70px;
-      }
+      body { margin: 0 2vw; font-size: 0.85rem; }
+      .logo-img { width: 70px; height: 70px; }
     }
   </style>
   <script>
+    // Disable right-click & copy
     document.addEventListener('contextmenu', event => event.preventDefault());
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.key === 'c') e.preventDefault();
       if (e.keyCode === 44) e.preventDefault(); // PrintScreen
+    });
+
+    // Animate sections on scroll
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('.section-box, .director, .tagline').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
     });
   </script>
 </head>
 <body>
 
 <header>
-  <img src="https://github.com/aicecomputer/portal/blob/main/120x120.jpg" alt="Institute Logo" class="logo-img">
+  <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/120x120.jpg" alt="Institute Logo" class="logo-img">
   
   <div class="header-title">
     <h1>Advance Institute of Computer Education</h1>
-    <p>Make RS-CIT Exam Success Easy & Digital!</p></p>
-    <p>3/SC-2/37 SECTOR 03 INDRA GANDHI NAGAR JAGATPURA, JAIPUR - 302017</p></p>
+    <p>3/SC-2/37 SECTOR 03 INDRA GANDHI NAGAR, JAGATPURA, JAIPUR - 302017</p>
+     <p>Make RS-CIT Exam Success Easy & Digital!</p>
   </div>
 
   <a href="https://script.google.com/macros/s/AKfycbyKGWLjHxc3HayvsS39TSgBfGvGg6-xtY01orx2Y6Q6y-oziSe3StgYFuwBUO6tXy8eXw/exec"
@@ -257,7 +275,7 @@
 
 <div class="container">
   <div class="director">
-    <img src="https://github.com/aicecomputer/portal/blob/main/100x100.jpg" alt="Director Photo">
+    <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/100x100.jpg" alt="Director Photo">
     <div>
       <strong>👨‍🏫 Director: Narendra Kumar Nagar </strong><br>
       <em>Visionary educator and digital learning promoter committed to student success.</em>
@@ -310,12 +328,12 @@
   <div class="dual-section">
     <div class="section-box">
       <h3>📍 Contact Us</h3>
-      <p><strong>🏫 Address:</strong> 3/SC-2/37 SECTOR 03 INDRA GANDHI NAGAR JAGATPURA, JAIPUR 302017 </p>
+      <p><strong>🏫 Address:</strong> 3/SC-2/37 SECTOR 03 INDRA GANDHI NAGAR, JAGATPURA, JAIPUR 302017 </p>
       <p><strong>📧 Email:</strong> aicecomputr@gmail.com </p>
       <p><strong>📞 Mobile:</strong> 9314897370 </p>
     </div>
     <div class="section-box">
-      <img src="https://github.com/aicecomputer/portal/blob/main/500x225.jpg" alt="Students Photo" style="width:100%; max-width:300px; height:auto; object-fit:cover; border-radius:10px; border:2px solid #4e54c8;">
+      <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/500x225.jpg" alt="Students Photo" style="width:100%; max-width:300px; height:auto; object-fit:cover; border-radius:10px; border:2px solid #4e54c8;">
     </div>
   </div>
 
