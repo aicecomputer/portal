@@ -88,7 +88,7 @@
       box-shadow: 0 8px 25px rgba(255, 165, 0, 0.6);
     }
 
-    /* CONTAINER & SECTIONS */
+    /* CONTAINER */
     .container {
       max-width: 1200px;
       margin: 30px auto;
@@ -106,11 +106,7 @@
       border-left: 4px solid #8f94fb;
       padding-left: 8px;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 18px;
-      margin: 8px 0;
-    }
+    ul { list-style-type: none; padding-left: 18px; margin: 8px 0; }
     li {
       padding: 6px 0;
       font-size: 0.96rem;
@@ -167,13 +163,8 @@
       opacity: 0;
       transform: translateY(30px);
     }
-    .section-box.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .section-box:hover {
-      transform: translateY(-5px);
-    }
+    .section-box.visible { opacity: 1; transform: translateY(0); }
+    .section-box:hover { transform: translateY(-5px); }
 
     /* TAGLINE */
     .tagline {
@@ -205,15 +196,8 @@
 
     /* RESPONSIVE */
     @media screen and (max-width: 768px) {
-      body {
-        margin: 0 3vw;
-        font-size: 0.92rem;
-      }
-      header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+      body { margin: 0 3vw; font-size: 0.92rem; }
+      header { flex-direction: column; align-items: center; text-align: center; }
       .logo-img { width: 90px; height: 90px; }
       .header-title h1 { font-size: 1.3rem; }
       .start-button {
@@ -223,15 +207,9 @@
         bottom: 20px;
         right: 20px;
       }
-      .dual-section {
-        flex-direction: column;
-        gap: 20px;
-      }
+      .dual-section { flex-direction: column; gap: 20px; }
       .section-box { flex: 1 1 100%; }
-      .director {
-        flex-direction: column;
-        text-align: center;
-      }
+      .director { flex-direction: column; text-align: center; }
       .director img { margin: 0 0 12px 0; }
     }
     @media screen and (max-width: 400px) {
@@ -261,19 +239,15 @@
 <body>
 
 <header>
-  <img src="https://github.com/aicecomputer/portal/blob/main/120x120-new.jpg" alt="Institute Logo" class="logo-img">
-  
+  <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/120x120-new.jpg" alt="Institute Logo" class="logo-img">
   <div class="header-title">
     <h1>Advance Institute of Computer Education</h1>
     <p>3/SC-2/37 SECTOR 03 INDRA GANDHI NAGAR, JAGATPURA, JAIPUR - 302017</p>
     <p style="color: orange; font-family: 'Poppins', sans-serif; font-weight: 600; font-style: italic;">
-  Make RS-CIT Exam Success Easy & Digital!
-</p>
-
+      Make RS-CIT Exam Success Easy & Digital!
+    </p>
   </div>
-
-  <a href="https://script.google.com/macros/s/AKfycbyKGWLjHxc3HayvsS39TSgBfGvGg6-xtY01orx2Y6Q6y-oziSe3StgYFuwBUO6tXy8eXw/exec"
-     class="start-button">🚀 Start Test Now</a>
+  <a href="https://script.google.com/macros/s/AKfycbyKGWLjHxc3HayvsS39TSgBfGvGg6-xtY01orx2Y6Q6y-oziSe3StgYFuwBUO6tXy8eXw/exec" class="start-button">🚀 Start Test Now</a>
 </header>
 
 <div class="container">
@@ -325,7 +299,7 @@
   </div>
 
   <div class="tagline">
-   🤖 New Feature Alert – Skill Bot is Live! “स्मार्ट तरीक़े से करें प्रैक्टिस – RS-CIT परीक्षा में पाएं शानदार सफलता!”
+    🤖 New Feature Alert – Skill Bot is Live! “स्मार्ट तरीक़े से करें प्रैक्टिस – RS-CIT परीक्षा में पाएं शानदार सफलता!”
   </div>
 
   <div class="dual-section">
@@ -341,7 +315,7 @@
   </div>
 
   <div class="footer">
-     © 2025 AK Sharma (Online Test Web Portal).
+    © 2025 AK Sharma (Online Test Web Portal).
   </div>
 </div>
 
