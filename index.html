@@ -13,7 +13,7 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #e0f0ff, #f4ecff);
+      background: linear-gradient(135deg, #fff8e7, #f4ecff);
       color: #1e1e2f;
       margin: 0 5vw;
       font-size: 1rem;
@@ -33,7 +33,7 @@
 
     /* HEADER */
     header {
-      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      background: linear-gradient(90deg, #d4af37, #f4d03f, #8f94fb);
       padding: 25px;
       display: flex;
       align-items: center;
@@ -49,33 +49,34 @@
       height: 120px;
       border-radius: 16px;
       object-fit: cover;
-      border: 2px solid #fff;
+      border: 2px solid #fff8dc;
+      box-shadow: 0 0 12px rgba(212,175,55,0.4);
     }
     .header-title h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
       margin-bottom: 4px;
-      background: linear-gradient(90deg, #ffe259, #ffa751);
+      background: linear-gradient(90deg, #ffe259, #ffcf71);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1.3;
       text-align: center;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      text-shadow: 1px 1px 6px rgba(255, 223, 128, 0.6);
     }
     .header-title p {
       font-size: 1rem;
-      color: #f0f0f0;
+      color: #f8f6ef;
       text-align: center;
     }
     .start-button {
-      background: linear-gradient(45deg, #ff512f, #f09819);
+      background: linear-gradient(45deg, #d4af37, #f09819);
       color: #fff;
       padding: 12px 24px;
       text-decoration: none;
       border-radius: 50px;
       font-size: 1rem;
       font-weight: bold;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 15px rgba(212,175,55,0.4);
       transition: all 0.3s ease;
       display: inline-block;
       margin-top: 15px;
@@ -85,7 +86,7 @@
     }
     .start-button:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 25px rgba(255, 165, 0, 0.6);
+      box-shadow: 0 8px 25px rgba(255, 223, 128, 0.7);
     }
 
     /* CONTAINER */
@@ -99,11 +100,11 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
     h3 {
-      color: #4e54c8;
+      color: #d4af37;
       font-weight: 600;
       font-size: 1.2rem;
       margin-bottom: 10px;
-      border-left: 4px solid #8f94fb;
+      border-left: 4px solid #f4d03f;
       padding-left: 8px;
     }
     ul { list-style-type: none; padding-left: 18px; margin: 8px 0; }
@@ -117,7 +118,7 @@
       content: "✔";
       position: absolute;
       left: -18px;
-      color: #4e54c8;
+      color: #d4af37;
       font-weight: bold;
     }
 
@@ -128,9 +129,9 @@
       align-items: center;
       margin-top: 20px;
       padding: 15px;
-      background: #f9f9ff;
+      background: #fdf8f2;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(212,175,55,0.2);
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease-out;
@@ -142,7 +143,8 @@
       object-fit: cover;
       border-radius: 50%;
       margin-right: 20px;
-      border: 3px solid #4e54c8;
+      border: 3px solid #d4af37;
+      box-shadow: 0 0 10px rgba(212,175,55,0.3);
     }
 
     /* SECTIONS */
@@ -154,7 +156,7 @@
     }
     .section-box {
       flex: 1 1 45%;
-      background: #ffffffaa;
+      background: #ffffffdd;
       backdrop-filter: blur(8px);
       border-radius: 12px;
       padding: 15px;
@@ -164,7 +166,7 @@
       transform: translateY(30px);
     }
     .section-box.visible { opacity: 1; transform: translateY(0); }
-    .section-box:hover { transform: translateY(-5px); }
+    .section-box:hover { transform: translateY(-5px); box-shadow: 0 6px 18px rgba(212,175,55,0.25); }
 
     /* Center align for Contact Us & Image */
     .dual-section:last-of-type .section-box {
@@ -177,7 +179,7 @@
 
     /* TAGLINE */
     .tagline {
-      background: linear-gradient(90deg, #ffe259, #ffa751);
+      background: linear-gradient(90deg, #ffe259, #ffcf71);
       padding: 12px;
       font-weight: bold;
       font-size: 1rem;
@@ -185,7 +187,7 @@
       text-align: center;
       color: #3a2f00;
       margin-top: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(212,175,55,0.3);
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.8s ease-out;
@@ -199,7 +201,7 @@
       color: #ffffff;
       padding: 15px;
       margin-top: 40px;
-      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      background: linear-gradient(90deg, #d4af37, #f4d03f, #8f94fb);
       border-radius: 10px;
     }
 
@@ -227,14 +229,11 @@
     }
   </style>
   <script>
-    // Disable right-click & copy
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.key === 'c') e.preventDefault();
-      if (e.keyCode === 44) e.preventDefault(); // PrintScreen
+      if (e.keyCode === 44) e.preventDefault();
     });
-
-    // Animate sections on scroll
     document.addEventListener('scroll', () => {
       document.querySelectorAll('.section-box, .director, .tagline').forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -269,8 +268,8 @@
     <div style="margin-left:auto; text-align:center;">
       <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/Cordinator-100x100.jpg" 
            alt="Coordinator Photo" 
-           style="width:100px; height:100px; object-fit:cover; border-radius:50%; border:3px solid #4e54c8;">
-      <div style="margin-top:8px; font-weight:600; color:#4e54c8;">
+           style="width:100px; height:100px; object-fit:cover; border-radius:50%; border:3px solid #d4af37;">
+      <div style="margin-top:8px; font-weight:600; color:#d4af37;">
         Coordinator: Bintosh Nagar
       </div>
     </div>
@@ -327,7 +326,7 @@
       <p><strong>📞 Mobile:</strong> 9314897370 </p>
     </div>
     <div class="section-box">
-      <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/500x225.jpg" alt="Students Photo" style="width:100%; max-width:300px; height:auto; object-fit:cover; border-radius:10px; border:2px solid #4e54c8;">
+      <img src="https://raw.githubusercontent.com/aicecomputer/portal/main/500x225.jpg" alt="Students Photo" style="width:100%; max-width:300px; height:auto; object-fit:cover; border-radius:10px; border:2px solid #d4af37;">
     </div>
   </div>
 
